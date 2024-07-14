@@ -14,7 +14,7 @@ import userRoutes from "./routes/userRoutes.js";
 import localAuthRoutes from "./routes/localAuthRoutes.js";
 import googleAuthRoutes from "./routes/googleAuthRoutes.js";
 
-// import "./config/passportConfig.js"; // Ensure to configure passport strategies
+import "./config/passportConfig.js"; // Ensure to configure passport strategies
 
 //.
 

@@ -38,7 +38,7 @@ async function registerUser(req, res) {
     }
   } catch (err) {
     console.error(err);
-    res.status(500).send("Server error : ", err.mesage);
+    res.status(500).send("Server error : ", err.message);
   }
 }
 

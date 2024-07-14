@@ -9,12 +9,6 @@ export const db = new pg.Client({
   ssl: {
     rejectUnauthorized: false,
   },
-
-  // database: process.env.PG_DATABASE,
-  // user: process.env.PG_USER,
-  // password: process.env.PG_PASSWORD,
-  // host: process.env.PG_HOST,
-  // port: process.env.PG_PORT,
 });
 db.connect().then(() => console.log("connected successfully to db"));
 
@@ -40,6 +34,7 @@ async function findUserByID(id) {
     return result.rows[0];
   } catch (err) {
     console.log("No user found");
+    throw new Error("No user found");
   }
 }
 

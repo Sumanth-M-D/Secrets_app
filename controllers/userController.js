@@ -30,7 +30,7 @@ function renderSecrets(req, res) {
 
 //.
 function renderCreateSecret(req, res) {
-  if (req.isAuthenticated) {
+  if (req.isAuthenticated()) {
     res.render("submit.ejs");
   } else {
     res.redirect("/login");
