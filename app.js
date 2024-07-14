@@ -37,6 +37,9 @@ app.use(
   session({
     store: new PgStore({
       conString: process.env.DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     }),
     secret: process.env.SESSION_SECRET,
     resave: false, /// Dont save the session to database
