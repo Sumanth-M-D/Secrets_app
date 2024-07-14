@@ -7,9 +7,6 @@ import bodyParser from "body-parser";
 
 //? For saving user login sessions
 import session from "express-session";
-import connectPgSimple from "connect-pg-simple";
-import pg from "pg";
-
 import passport from "passport";
 
 //? Local modules
@@ -33,19 +30,8 @@ app.use(express.static("public"));
 // .
 //? Saving user login sessions
 // Creating the user session through "express-session"
-const PgStore = connectPgSimple(session);
-const pgPool = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
-
 app.use(
   session({
-    store: new PgStore({
-      pool: pgPool,
-    }),
     secret: process.env.SESSION_SECRET,
     resave: false, /// Dont save the session to database
     saveUninitialized: true, /// Save the session to the browser
